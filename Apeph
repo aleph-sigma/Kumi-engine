@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroBIN ALEPH-Σ | Ecosistema de Inteligencia Trascendental</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+        
+        :root {
+            --bg-warm: #fdfbf7;
+            --accent-gold: #d4af37;
+            --tech-blue: #1e293b;
+            --neural-glow: rgba(212, 175, 55, 0.2);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-warm);
+            color: var(--tech-blue);
+            scroll-behavior: smooth;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            box-shadow: 0 10px 30px var(--neural-glow);
+            transform: translateY(-2px);
+        }
+
+        .pi-node {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 2px dashed #cbd5e1;
+            transition: border-color 0.3s;
+            cursor: pointer;
+        }
+
+        .pi-node.active-node {
+            border-color: var(--accent-gold);
+            background: white;
+            box-shadow: 0 4px 12px var(--neural-glow);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+<div class="max-w-6xl mx-auto px-4 py-12">
+    <!-- Header / Identidad -->
+    <header class="mb-20 text-center">
+        <div class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest uppercase border border-slate-300 rounded-full text-slate-500">
+            Protocolo ALEPH-Σ v28.3.0
+        </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-4 text-slate-900">
+            Neuro<span class="text-amber-600">BIN</span>
+        </h1>
+        <p class="text-xl md:text-2xl font-light text-slate-600 italic">
+Sincronizando estados de información continua y discreta
+        </p>
+        <div class="mt-8 p-6 bg-white rounded-2xl shadow-sm border border-stone-100 max-w-2xl mx-auto">
+            <span class="text-3xl mono font-bold text-amber-600">∞ - n = NeuroBIN</span>
+            <p class="mt-4 text-sm text-slate-500 leading-relaxed">
+                Basado en la teoría de conjuntos transfinitos de Cantor. La inteligencia sintética es la esencia resultante de sustraer el ruido finito (n) del potencial latente infinito. Nodo central: <span class="mono font-bold">SQ-3000_G6</span>.
+            </p>
+        </div>
+    </header>
+
+    <!-- Sección 1: Laboratorio de Propagación Neuronal -->
+    <section id="lab" class="mb-24">
+        <div class="mb-10">
+            <h2 class="text-3xl font-bold mb-4 text-slate-900">I. El Motor de Disparo Neuronal</h2>
+            <p class="text-slate-600 max-w-3xl">
+                Esta sección simula el procesamiento del vector de estado en tiempo real. Utilizando la lógica de activación 
+                <span class="font-bold">ReLU</span> y la matriz de pesos sinápticos definida en el protocolo, procesamos estímulos sensoriales 
+                para generar una respuesta coherente en los nodos primarios (α, β, γ).
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="glass-panel p-8">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-amber-600 mb-6">Configuración de Estímulos (Vector x)</h3>
+                <div id="sliders-container" class="space-y-6">
+                    <!-- Sliders generated via JS -->
+                </div>
+                <div class="mt-10 pt-6 border-t border-stone-200">
+                    <p class="text-[10px] uppercase tracking-widest text-slate-400 mb-4">Modelo Matemático: z = Wx + b | a = max(0, z)</p>
+                    <button onclick="propagarPulsos()" class="w-full bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-amber-600 transition-colors shadow-lg">
+                        EJECUTAR PROPAGACIÓN SINÁPTICA
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex flex-col space-y-6">
+                <div class="chart-container glass-panel p-6">
+                    <canvas id="neuralChart"></canvas>
+                </div>
+                <div class="bg-slate-900 text-stone-300 p-6 rounded-xl mono text-xs shadow-xl">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-amber-500">// Output Activation Vector (a)</span>
+                        <span id="timestamp-log" class="text-slate-500 uppercase">READY</span>
+                    </div>
+                    <p id="output-vector" class="text-lg text-white font-bold">[ 0.00, 0.00, 0.00 ]</p>
+                    <p class="mt-4 text-[10px] text-slate-500">La arquitectura atenúa perturbaciones mientras amplifica señales de alta congruencia semántica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 2: Infraestructura PI (Planos de Inteligencia) -->
+    <section id="infra" class="mb-24">
+        <div class="mb-10 text-center">
+            <h2 class="text-3xl font-bold mb-4">II. Arquitectura de Despliegue (Planos PI)</h2>
+            <p class="text-slate-600 max-w-3xl mx-auto">
+                La implementación en la nube de NeuroBIN ALEPH-Σ está segmentada en cuatro capas funcionales orquestadas en Google Cloud Platform. 
+                Interactúe con cada plano para explorar sus componentes y funciones críticas.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <!-- PI-1 -->
+            <div class="pi-node flex-col text-center" id="node-pi1" onclick="showInfo('pi1')">
+                <span class="text-3xl mb-3">📡</span>
+                <h4 class="font-bold text-sm uppercase">Plano PI_1</h4>
+                <p class="text-[10px] text-slate-500 mt-2">INGESTA SENSORIAL</p>
+            </div>
+            <!-- PI-2 -->
+            <div class="pi-node flex-col text-center" id="node-pi2" onclick="showInfo('pi2')">
+                <span class="text-3xl mb-3">🧠</span>
+                <h4 class="font-bold text-sm uppercase">Plano PI_2</h4>
+                <p class="text-[10px] text-slate-500 mt-2">ESPACIO LATENTE</p>
+</div>
+            <!-- PI-3 -->
+            <div class="pi-node flex-col text-center" id="node-pi3" onclick="showInfo('pi3')">
+                <span class="text-3xl mb-3">🔐</span>
+                <h4 class="font-bold text-sm uppercase">Plano PI_3</h4>
+                <p class="text-[10px] text-slate-500 mt-2">GOBERNANZA KMS</p>
+            </div>
+            <!-- PI-4 -->
+            <div class="pi-node flex-col text-center" id="node-pi4" onclick="showInfo('pi4')">
+                <span class="text-3xl mb-3">⚡</span>
+                <h4 class="font-bold text-sm uppercase">Plano PI_4</h4>
+                <p class="text-[10px] text-slate-500 mt-2">MOTOR DE ACCIÓN</p>
+            </div>
+        </div>
+
+        <div id="info-display" class="bg-white border border-stone-200 rounded-2xl p-8 shadow-inner min-h-[250px] transition-all duration-500">
+            <div id="info-default">
+                <div class="flex flex-col items-center justify-center py-12 text-slate-400">
+                    <span class="text-4xl mb-4">ℵ</span>
+                    <p class="italic text-center">Seleccione un Plano PI para inspeccionar los detalles técnicos de la infraestructura distribuida.</p>
+                </div>
+            </div>
+            <div id="info-content" class="hidden">
+                <div class="flex flex-col md:flex-row gap-10">
+                    <div class="md:w-1/2">
+                        <div id="info-tag" class="inline-block px-2 py-1 mb-4 text-[10px] font-bold rounded uppercase"></div>
+                        <h3 id="info-title" class="text-2xl font-bold text-slate-900 mb-4"></h3>
+                        <p id="info-desc" class="text-slate-600 leading-relaxed"></p>
+                    </div>
+                    <div class="md:w-1/2 bg-slate-900 p-6 rounded-xl mono text-[11px] text-amber-100 border border-slate-700 overflow-x-auto">
+                        <p class="text-slate-500 mb-2 border-b border-slate-800 pb-2">// Componentes Clave de GCP</p>
+                        <div id="info-tech" class="space-y-1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 3: Resiliencia Criptográfica -->
+    <section id="security" class="mb-24">
+        <div class="glass-panel p-10 bg-slate-900 text-white overflow-hidden relative">
+            <div class="absolute top-0 right-0 p-8 opacity-10 text-8xl font-bold italic">AES-256</div>
+            <div class="relative z-10">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="mr-3">🛡️</span> Protección Transversal Aleph-Crypto
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-amber-500 font-bold mb-2">CMEK Mandatorio</h4>
+                        <p class="text-sm text-slate-400">Todos los recursos (Storage, Vertex, Pub/Sub) emplean llaves administradas por el cliente generadas en Cloud KMS.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-amber-500 font-bold mb-2">Respaldo HSM</h4>
+                        <p class="text-sm text-slate-400">Las llaves se alojan en anillos regionales con respaldo en módulos de hardware de seguridad física.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-amber-500 font-bold mb-2">Cifrado GCM</h4>
+                        <p class="text-sm text-slate-400">Uso de AES-256 GCM para garantizar integridad y confidencialidad de los vectores neuronales latentes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Credenciales -->
+    <footer class="border-t border-stone-200 pt-12 pb-24 grid grid-cols-1 md:grid-cols-2 gap-10 items-end">
+        <div>
+            <div class="flex items-center space-x-4 mb-6">
+                <div class="w-14 h-14 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-xl border-2 border-amber-500">JC</div>
+                <div>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Operador Certificado ALEPH-Σ</p>
+                    <p class="text-xl text-slate-900 font-extrabold">José Francisco Cantoriano Leyva</p>
+                    <p class="text-xs mono text-slate-500 uppercase">RFC: CALF8712186T5</p>
+                </div>
+            </div>
+            <p class="text-xs text-stone-400 italic">© 2026 NEUROBIN PROTOCOL. Todos los derechos reservados bajo licencia Apache 2.0.</p>
+</div>
+        <div class="text-right">
+            <div class="inline-block text-left p-4 bg-stone-100 rounded-lg border border-stone-200">
+                <p class="text-[9px] uppercase font-bold text-slate-500 mb-1">Estado del Sistema</p>
+                <div class="flex items-center text-green-600 font-bold text-xs">
+                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                    NODO SQ-3000_G6 ONLINE [NAMESPACE ℵ₁]
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script>
+    // --- DATA & CONSTANTS ---
+    // Derived from the Source Report math
+    const inputState = [0.2, 0.8, -0.1, 0.5]; // Initial vector x
+    const weights = [
+        [0.5, -0.2, 0.1, 0.8],   // Node Alpha weights
+        [0.1, 0.9, 0.3, -0.4],   // Node Beta weights
+        [-0.3, 0.4, 0.7, 0.2]    // Node Gamma weights
+    ];
+    const bias = [-0.1, 0.2, 0.0];
+
+    const piData = {
+        pi1: {
+            title: "Plano PI_1: Ingesta Sensorial",
+            tag: "Streaming Asíncrono",
+            color: "bg-green-100 text-green-700",
+            desc: "Puerta de entrada de pulsos telemétricos. Absorbe eventos en tiempo real con latencia de sub-segundo. Utiliza Pub/Sub para desacoplamiento y Dataflow para limpieza de señales corruptas.",
+            tech: ["Google Cloud Pub/Sub", "Google Cloud Storage", "Cloud Dataflow", "Protobuf Serialization"]
+        },
+        pi2: {
+            title: "Plano PI_2: Espacio Latente",
+            tag: "Inteligencia Vectorial",
+            color: "bg-blue-100 text-blue-700",
+            desc: "Núcleo de IA. Realiza una reducción topológica mapeando vectores de entrada R^8 a R^4. Utiliza el Matching Engine de Vertex AI para búsquedas de vecinos más cercanos mediante Distancia Coseno.",
+            tech: ["Vertex AI Matching Engine", "Vector Indexes", "Cosine Similarity Calculus", "TensorFlow Lattice"]
+        },
+        pi3: {
+            title: "Plano PI_3: Criptografía ALEPH",
+            tag: "Gobernanza de Seguridad",
+            color: "bg-amber-100 text-amber-700",
+            desc: "Capa transversal de protección. Administra el ciclo de vida de las llaves CMEK. Garantiza que ningún dato alcance el reposo o tránsito sin cifrado simétrico AES-256 respaldado por hardware.",
+            tech: ["Cloud Key Management Service", "Hardware Security Modules (HSM)", "CMEK Policies", "Audit Logging"]
+        },
+        pi4: {
+            title: "Plano PI_4: Motor de Ejecución",
+            tag: "Acción Serverless",
+            color: "bg-purple-100 text-purple-700",
+            desc: "Etapa eferente del sistema. Ejecuta microservicios sin estado que reaccionan a las clasificaciones del espacio latente. Valida el entorno mediante la inyección de la Biyección de Cantor.",
+            tech: ["Google Cloud Run v2", "Eventarc Triggers", "Cantor Bijection Injection", "Binary Authorization"]
+        }
+    };
+
+    // --- CHART INITIALIZATION ---
+    let neuralChart;
+    const ctx = document.getElementById('neuralChart').getContext('2d');
+
+    function initChart() {
+        neuralChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Nodo Alpha (α)', 'Nodo Beta (β)', 'Nodo Gamma (γ)'],
+                datasets: [{
+                    label: 'Intensidad de Activación (ReLU)',
+                    data: [0, 0, 0],
+                    backgroundColor: 'rgba(212, 175, 55, 0.2)',
+                    borderColor: '#d4af37',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#1e293b',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#d4af37'
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 1.2,
+                        ticks: { display: false, stepSize: 0.2 },
+                        grid: { color: 'rgba(30, 41, 59, 0.1)' },
+                        angleLines: { color: 'rgba(30, 41, 59, 0.1)' },
+                        pointLabels: {
+                            font: { family: 'Inter', size: 12, weight: 'bold' },
+                            color: '#1e293b'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { family: 'Inter', size: 11 } } }
+                }
+            }
+        });
+    }
+
+    // --- LOGIC FUNCTIONS ---
+    function renderSliders() {
+        const container = document.getElementById('sliders-container');
+        const labels = ['Estímulo Visual (x₀)', 'Estímulo Cognitivo (x₁)', 'Ruido Sináptico (x₂)', 'Presión de Datos (x₃)'];
+        
+        inputState.forEach((val, i) => {
+            const div = document.createElement('div');
+            div.innerHTML = `
+                <div class="flex justify-between items-center mb-2">
+                    <label class="text-xs font-semibold text-slate-500 uppercase tracking-tighter">${labels[i]}</label>
+                    <span id="val-${i}" class="mono text-amber-600 font-bold bg-amber-50 px-2 py-0.5 rounded">${val.toFixed(2)}</span>
+                </div>
+                <input type="range" min="-1" max="1" step="0.05" value="${val}" 
+                    class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-amber-600"
+                    oninput="updateInput(${i}, this.value)">
+            `;
+            container.appendChild(div);
+        });
+    }
+
+    function updateInput(index, value) {
+        inputState[index] = parseFloat(value);
+        document.getElementById(`val-${index}`).innerText = parseFloat(value).toFixed(2);
+        // Live update for engagement
+        propagarPulsos();
+    }
+
+    function propagarPulsos() {
+        // Calculation: z = Wx + b
+        let activation = [];
+        for (let i = 0; i < weights.length; i++) {
+            let z_i = 0;
+            for (let j = 0; j < inputState.length; j++) {
+                z_i += weights[i][j] * inputState[j];
+            }
+            z_i += bias[i];
+            
+            // Activation: ReLU(z) = max(0, z)
+            activation.push(Math.max(0, z_i));
+        }
+
+        // Update Radar Chart
+        neuralChart.data.datasets[0].data = activation;
+        neuralChart.update('none'); // Update without full animation for smoothness
+        
+        // Update Console Log
+        const vectorStr = `[ ${activation.map(n => n.toFixed(4)).join(' , ')} ]`;
+        document.getElementById('output-vector').innerText = vectorStr;
+        document.getElementById('timestamp-log').innerText = new Date().toLocaleTimeString() + " - SYNCED";
+    }
+
+    function showInfo(key) {
+        const data = piData[key];
+        const display = document.getElementById('info-display');
+        const content = document.getElementById('info-content');
+        const defaultView = document.getElementById('info-default');
+        
+        // Visual feedback on nodes
+        document.querySelectorAll('.pi-node').forEach(node => node.classList.remove('active-node'));
+        document.getElementById(`node-${key}`).classList.add('active-node');
+
+        // Transition content
+        defaultView.classList.add('hidden');
+        content.classList.remove('hidden');
+        
+        document.getElementById('info-title').innerText = data.title;
+        document.getElementById('info-desc').innerText = data.desc;
+        
+        const tag = document.getElementById('info-tag');
+        tag.innerText = data.tag;
+        tag.className = `inline-block px-2 py-1 mb-4 text-[10px] font-bold rounded uppercase ${data.color}`;
+
+        const techContainer = document.getElementById('info-tech');
+        techContainer.innerHTML = '';
+        data.tech.forEach(t => {
+            const item = document.createElement('p');
+            item.className = 'flex items-center';
+            item.innerHTML = `<span class="text-amber-500 mr-2">›</span> ${t}`;
+            techContainer.appendChild(item);
+        });
+    }
+
+    // --- BOOTSTRAP ---
+    window.onload = () => {
+        renderSliders();
+        initChart();
+        propagarPulsos();
+    };
+</script>
+
+</body>
+</html>
