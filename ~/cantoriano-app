@@ -1,0 +1,216 @@
+Welcome to Termux
+
+Docs:       https://doc.termux.com
+Community:  https://community.termux.com
+
+Working with packages:
+ - Search:  pkg search <query>
+ - Install: pkg install <package>
+ - Upgrade: pkg upgrade
+
+Report issues at https://bugs.termux.com
+~/downloads $
+~/downloads $ #
+~/downloads $  1. Install what you need
+No command 1. found, did you mean:
+ Command ab in package apache2
+ Command at in package at
+ Command bc in package bc
+ Command as in package binutils
+ Command bk in package bk
+ Command nc in package busybox
+ Command cc in package clang
+ Command [ in package coreutils
+ Command lp in package cups
+ Command d8 in package d8
+ Command sh in package dash
+ Command dx in package dx
+ Command e16 in package e16 from the x11-repo
+ repository
+ Command ed in package ed
+ Command ef in package electric-fence
+ Command et in package et
+ Command fd in package fd
+ Command fm in package fm
+ Command fx in package fx
+ Command dl in package gatling
+ Command gh in package gh
+ Command gs in package ghostscript
+ Command gn in package gn
+ Command go in package golang
+ Command gm in package graphicsmagick
+ Command gc in package graphviz
+ Command gw in package gw from the x11-repo r
+epository
+ Command hx in package helix
+ Command hh in package hstr
+ Command hz in package hz
+ Command i3 in package i3 from the x11-repo r
+epository
+ Command ip in package iproute2
+ Command iw in package iw from the root-repo 
+repository
+ Command jo in package jo
+ Command jq in package jq
+ Command k in package kona
+ Command lf in package lf
+ Command pl in package libgnustep-base
+ Command h3 in package libuber-h3
+ Command ld in package lld
+ Command ar in package llvm
+ Command lr in package lr
+ Command lx in package lux-cli
+ Command m4 in package m4
+ Command mc in package mc
+ Command ml in package mercury
+ Command mg in package mg
+ Command al in package mono
+ Command ts in package moreutils
+ Command lz in package mtools
+ Command mu in package mu
+ Command mr in package myrepos
+ Command sc in package n-t-roff-sc
+ Command ne in package ne
+ Command ex in package neovim-nightly,neovim
+ Command nc in package netcat-openbsd
+ Command nc in package nmap
+ Command pp in package nss-utils
+ Command nu in package nushell
+ Command nx in package nxengine from the x11-
+repo repository
+ Command ol in package ol
+ Command iv in package openimageio from the x
+11-repo repository
+ Command o in package orbiton
+ Command 7z in package p7zip
+ Command gp in package pari
+ Command pb in package pb
+ Command ps in package procps
+ Command pd in package proot-distro
+ Command pv in package pv
+ Command q in package q-dns-client
+ Command qs in package quickshell from the x1
+1-repo repository
+ Command r2 in package radare2
+ Command rc in package rc
+ Command ci in package rcs
+ Command rg in package ripgrep
+ Command rq in package rq
+ Command ri in package ruby-ri
+ Command sv in package runit
+ Command sd in package sd
+ Command ag in package silversearcher-ag
+ Command sl in package sl
+ Command st in package st from the x11-repo r
+epository
+ Command sr in package surfraw
+ Command pt in package tcllib
+ Command am in package termux-am
+ Command df in package termux-tools
+ Command ht in package texlive-bin
+ Command sn in package tin-summer
+ Command tf in package tinyfugue
+ Command ty in package ty
+ Command ug in package ugrep
+ Command up in package up
+ Command ul in package util-linux
+ Command cu in package uucp
+ Command uv in package uv
+ Command ex in package vim
+ Command ex in package vim-gtk from the x11-r
+epo repository
+ Command vt in package virustotal-cli
+ Command vi in package vis
+ Command wg in package wireguard-tools
+ Command xh in package xh
+ Command X in package xorg-server from the x1
+1-repo repository
+ Command xz in package xz-utils
+ Command ya in package yazi
+ Command yq in package yq
+ Command z3 in package z3
+ Command zk in package zk
+~/downloads $ pkg update && pkg upgrade
+Hit:1 https://termux.net stable InRelease
+Get:2 https://tur.kcubeterm.com tur-packages 
+InRelease
+Fetched 18.4 kB in 1s (19.2 kB/s)
+All packages are up to date.
+Hit:1 https://termux.net stable InRelease
+Get:2 https://tur.kcubeterm.com tur-packages 
+InRelease
+Fetched 18.4 kB in 1s (32.6 kB/s)
+All packages are up to date.
+Summary:
+  Upgrading: 0, Installing: 0, Removing: 0, N
+ot Upgrading: 0
+~/downloads $ pkg install git nodejs
+git is already the newest version (2.54.0).
+nodejs is already the newest version (26.3.1)
+.
+Summary:
+  Upgrading: 0, Installing: 0, Removing: 0, N
+ot Upgrading: 0
+~/downloads $
+~/downloads $ # 2. Install firebase tools (if
+ you don't have it)
+~/downloads $ npm install -g firebase-tools
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: 'superstatic@1
+0.0.0',
+npm warn EBADENGINE   required: { node: '20 |
+| 22 || 24' },
+npm warn EBADENGINE   current: { node: 'v26.3
+.1', npm: '11.17.0' }
+npm warn EBADENGINE }
+npm warn deprecated node-domexception@1.0.0: 
+Use your platform's native DOMException inste
+ad
+npm warn deprecated json-ptr@3.1.1: Package n
+o longer supported. Contact Support at https:
+//www.npmjs.com/support for more info.
+npm warn deprecated uuid@9.0.1: uuid@10 and b
+elow is no longer supported.  For ESM codebas
+es, update to uuid@latest.  For CommonJS code
+bases, use uuid@11 (but be aware this version
+ will likely be deprecated in 2028).
+npm warn deprecated glob@10.5.0: Old versions
+ of glob are not supported, and contain widel
+y publicized security vulnerabilities, which 
+have been fixed in the current version. Pleas
+e update. Support for old versions may be pur
+chased (at exorbitant rates) by contacting i@
+izs.me
+
+changed 654 packages in 2m
+
+92 packages are looking for funding
+  run `npm fund` for details
+npm warn allow-scripts 1 package has install 
+scripts not yet covered by allowScripts:
+npm warn allow-scripts   protobufjs@7.6.6 (po
+stinstall: node scripts/postinstall)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm install -g --
+allow-scripts=protobufjs` to allow these scri
+pts once, or `npm config set allow-scripts=pr
+otobufjs --location=user` to allow them for a
+ll global installs.
+~/downloads $
+~/downloads $ # 3. Create a real project fold
+er - DON'T use ~
+~/downloads $ mkdir ~/cantoriano-app
+mkdir: cannot create directory ‘/data/data/co
+m.termux/files/home/cantoriano-app’: File exi
+sts
+~/downloads $ cd ~/cantoriano-app
+~/cantoriano-app $
+~/cantoriano-app $ # 4. That .gitignore was c
+orrect
+~/cantoriano-app $ echo "device-meta.json" >>
+ .gitignore
+~/cantoriano-app $
+~/cantoriano-app $ # 5. Login - This is the i
+mportant part for Termux
+~/cantoriano-app $ firebase login --no-localh
+ost
