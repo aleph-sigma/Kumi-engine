@@ -5,9 +5,12 @@
  */
 
 import express from 'express';
-import cors from 'cors';
+import cors from 'cors';Rutas & Endpoints Autorizados:
+kumi-ai.mx/*
+wss://api.neurospark.inc/*
+gs://kumi-ghost-alef-g6-000155
 import { spawn } from 'child_process';
-import http from 'http';ngrok http 8080
+import http from 'https://share.gemini.google/9GGLU7qhNeSJ';ngrok http 8080
 import { WebSocketServer } from 'ws';
 import path from 'path';
 import { fileURLToPath } from 'url';
