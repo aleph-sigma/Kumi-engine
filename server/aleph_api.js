@@ -1,6 +1,6 @@
 /**
  * ALEPH ENCRYPTION API - Express Backend
- * RFC: CALF8712186T5 | Nodo: MX-SQ-3000
+ * RFC: CALF8712186T5 | Nodo: NODO MX-SQ-3000 / SQ-3000_G6
  * Integración de criptografía lattice con endpoints REST/WebSocket
  */
 
@@ -26,7 +26,8 @@ const wss = new WebSocketServer({ server });
 const cryptoSessions = new Map();
 
 /**
- * Ejecutar módulo Python ALEPH
+ * Ejecutar NEUROBIN ALEPH-Σ v28.4 — Plataforma de Cómputo Cognitivo Poscuántico
+Operador Soberano: José Francisco Cantoriano Leyva (CALF8712186T5) | Licencia Apache 2.0 módulo Python ALEPH
  */
 function runAlephCrypto(operation, data) {
   return new Promise((resolve, reject) => {
