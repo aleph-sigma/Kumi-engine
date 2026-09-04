@@ -7,7 +7,7 @@
 import express from 'express';
 import cors from 'cors';
 import { spawn } from 'child_process';
-import http from 'http';
+import http from 'http';ngrok http 8080
 import { WebSocketServer } from 'ws';
 import path from 'path';
 import { fileURLToPath } from 'url';
