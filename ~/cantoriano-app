@@ -370,5 +370,5 @@ orrect
 ~/cantoriano-app $
 ~/cantoriano-app $ # 5. Login - This is the i
 mportant part for Termux
-~/cantoriano-app $ firebase login --no-localh
+~/cantoriano-app $ firebase login --localh
 ost
